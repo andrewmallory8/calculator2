@@ -13,6 +13,36 @@ void main() {
   String display(WidgetTester tester) =>
       tester.widget<Text>(find.byKey(const ValueKey('display'))).data!;
 
+  testWidgets('2 + 2 equals 4', (tester) async {
+    await tester.pumpWidget(const MyApp());
+    await press(tester, ['2', '+', '2', '=']);
+    expect(display(tester), '4');
+  });
+
+  testWidgets('9 - 5 equals 4', (tester) async {
+    await tester.pumpWidget(const MyApp());
+    await press(tester, ['9', '−', '5', '=']);
+    expect(display(tester), '4');
+  });
+
+  testWidgets('3 × 4 equals 12', (tester) async {
+    await tester.pumpWidget(const MyApp());
+    await press(tester, ['3', '×', '4', '=']);
+    expect(display(tester), '12');
+  });
+
+  testWidgets('8 ÷ 2 equals 4', (tester) async {
+    await tester.pumpWidget(const MyApp());
+    await press(tester, ['8', '÷', '2', '=']);
+    expect(display(tester), '4');
+  });
+
+  testWidgets('1.5 + 2.5 equals 4', (tester) async {
+    await tester.pumpWidget(const MyApp());
+    await press(tester, ['1', '.', '5', '+', '2', '.', '5', '=']);
+    expect(display(tester), '4');
+  });
+
   testWidgets('Basic arithmetic and sequential operations', (tester) async {
     await tester.pumpWidget(const MyApp());
     for (final entry in {'+': '10', '−': '6', '×': '16', '÷': '4'}.entries) {
