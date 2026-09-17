@@ -1,17 +1,28 @@
-# calculator
+# Calculator
 
-A new Flutter project.
+A simple, single-screen Flutter calculator designed for iPhone, with a light theme,
+large buttons, and a display that scales to fit longer numbers.
 
-## Getting Started
+Supports addition, subtraction, multiplication, division, decimal numbers,
+positive/negative numbers, clear, and deleting the last entered digit. Operations
+are evaluated sequentially, like a basic pocket calculator. Division by zero
+shows an error; entering a number starts again. Input and results use up to 12
+significant digits.
 
-This project is a starting point for a Flutter application.
+## Run
 
-A few resources to get you started if this is your first Flutter project:
+With Flutter and Xcode installed, start an iPhone simulator and run:
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+```sh
+flutter run
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Verify
+
+```sh
+flutter analyze
+flutter test
+flutter build ios --simulator --no-codesign
+```
+
+Running on a physical iPhone requires configuring your signing team in Xcode.
